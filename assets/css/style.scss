@@ -1,0 +1,658 @@
+/*
+@File: Emilono Template Styles
+
+* This file contains the styling for the actual template, this
+is the file you need to edit to change the look of the
+template.
+
+This files table contents are outlined below>>>>>
+
+*******************************************
+*******************************************
+
+** - Default CSS
+** - Preloader CSS
+** - Main Banner CSS
+** - Sidebar Modal CSS
+** - Footer CSS
+*/
+
+/*================================================
+Default CSS
+=================================================*/
+@import url('https://fonts.googleapis.com/css?family=Barlow:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&display=swap');
+
+$main-font-family: 'Barlow', sans-serif;
+$optional-font-family: 'Dosis', sans-serif;
+$main-color: #7f4aa2;
+$black-color: #000000;
+$white-color: #ffffff;
+$transition: .5s;
+
+body {
+    padding: 0;
+    margin: 0;
+    font: {
+        family: $main-font-family;
+    }
+}
+a {
+    text-decoration: none;
+    transition: $transition;
+
+    &:hover, &:focus {
+        text-decoration: none;
+    }
+}
+p {
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+.d-table {
+    width: 100%;
+    height: 100%;
+
+    &-cell {
+        vertical-align: middle;
+    }
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    color: $black-color;
+}
+img {
+    max-width: 100%;
+}
+
+/*================================================
+Preloader CSS
+=================================================*/
+.preloader {
+    position: fixed;
+    left: 0;
+    width: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    z-index: 9999999;
+    background-color: $main-color;
+
+    .loader {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: inline-block;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        top: 45%;
+        transform: translateY(-45%);
+
+        .loader-outter {
+            position: absolute;
+            border: 4px solid $white-color;
+            border-left-color: transparent;
+            border-bottom: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            animation: loader-outter 1s cubic-bezier(.42, .61, .58, .41) infinite;
+        }
+        .loader-inner {
+            position: absolute;
+            border: 4px solid $white-color;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            left: calc(50% - 20px);
+            top: calc(50% - 20px);
+            border-right: 0;
+            border-top-color: transparent;
+            animation: loader-inner 1s cubic-bezier(.42, .61, .58, .41) infinite;
+        }
+    }
+}
+@keyframes loader-outter {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes loader-inner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+/*================================================
+Navbar CSS
+=================================================*/
+.navbar-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    z-index: 99;
+    padding: {
+        top: 30px;
+    }
+}
+.navbar-menu {
+    text-align: right;
+
+    .logo {
+        text-align: left;
+
+        a {
+            display: inline-block;
+        }
+    }
+    .burger-menu {
+        cursor: pointer;
+        text-align: center;
+        margin-left: auto;
+        width: 45px;
+        height: 45px;
+        border: 1px solid $white-color;
+        border-radius: 50%;
+        padding-top: 13px;
+        padding-right: 10px;
+        transition: $transition;
+
+        span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: $white-color;
+            border-radius: 5px;
+            margin-bottom: 3px;
+            margin-left: auto;
+            transition: $transition;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+            &:nth-child(2), &:nth-child(3) {
+                width: 23px;
+            }
+        }
+        &:hover {
+            span {
+                width: 23px !important;
+            }
+        }
+    }
+}
+
+/*================================================
+Main Banner CSS
+=================================================*/
+.main-banner {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    overflow: hidden;
+    background: {
+        color: $white-color;
+    }
+    &::before {
+        content: '';
+        position: absolute;
+        right: -200px;
+        top: 0;
+        width: 900px;
+        height: 100%;
+        background: {
+            image: url(../../assets/img/color-shape.png);
+            position: bottom right;
+            size: cover;
+            repeat: no-repeat;
+        }
+    }
+}
+.main-banner-content {
+    #timer {
+        margin: {
+            bottom: 15px;
+        }
+        div {
+            display: inline-block;
+            color: $black-color;
+            text-align: center;
+            position: relative;
+            margin: {
+                left: 30px;
+                right: 30px;
+            }
+            font: {
+                size: 50px;
+                family: $optional-font-family;
+                weight: 700;
+            }
+            span {
+                display: block;
+                text-transform: capitalize;
+                margin-top: -8px;
+                color: #1e1b1b;
+                text-transform: uppercase;
+                font: {
+                    size: 14px;
+                    weight: 600;
+                }
+            }
+            &:last-child {
+                margin-right: 0;
+
+                &::before {
+                    display: none;
+                }
+            }
+            &:first-child {
+                margin-left: 0;
+            }
+            &::before {
+                content: ':';
+                position: absolute;
+                right: -39px;
+                top: -16px;
+                font-size: 60px;
+                color: $black-color;
+            }
+        }
+    }
+    h1 {
+        margin-bottom: 0;
+        font: {
+            size: 55px;
+            weight: 700;
+        }
+    }
+    p {
+        color: #666666;
+        line-height: 1.8;
+        max-width: 600px;
+        margin: {
+            top: 15px;
+            bottom: 0;
+        }
+    }
+    .newsletter-form {
+        margin-top: 28px;
+        position: relative;
+        max-width: 480px;
+
+        .input-newsletter {
+            display: block;
+            width: 100%;
+            border-radius: 30px;
+            height: 60px;
+            font-size: 15px;
+            border: none;
+            background-color: $white-color;
+            transition: $transition;
+            outline: 0;
+            color: $black-color;
+            padding-left: 20px;
+            box-shadow: 0 5px 28.5px 1.5px rgba(149, 152, 200, .15);
+
+            &::placeholder {
+                color: #666666;
+            }
+        }
+        button {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 60px;
+            line-height: 60px;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            background-color: $main-color;
+            border: none;
+            transition: $transition;
+            outline: 0;
+            color: $white-color;
+            border-radius: 33px;
+            padding: 0 30px;
+            box-shadow: 0 5px 28.5px 1.5px rgba(127, 74, 162, .25);
+            font: {
+                family: $optional-font-family;
+                weight: 600;
+                size: 15px;
+            }
+            &:hover {
+                color: $white-color;
+                background-color: $black-color;
+            }
+        }
+        #validator-newsletter {
+            font-size: 15px;
+            position: absolute;
+            left: 0;
+            bottom: -31px;
+            color: $black-color;
+
+            &.validation-danger {
+                color: red;
+            }
+        }
+    }
+}
+.main-banner-image {
+    position: relative;
+    text-align: center;
+    left: -75px;
+    bottom: -10px;
+}
+
+/*================================================
+Footer CSS
+=================================================*/
+.footer-area {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+    padding: {
+        top: 30px;
+        bottom: 30px;
+    }
+    ul {
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style-type: none;
+
+        li {
+            display: inline-block;
+            color: $black-color;
+            margin: {
+                right: 2px;
+            }
+            span {
+                display: inline-block;
+                margin-right: 3px;
+                color: $main-color;
+                font: {
+                    size: 15px;
+                    weight: 500;
+                }
+            }
+            a {
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                color: #7c5191;
+                border-radius: 50%;
+                background-color: transparent;
+                text-align: center;
+                line-height: 29px;
+                font-size: 12.5px;
+                border: 1px solid #eeeeee;
+                
+                &:hover {
+                    background-color: $main-color;
+                    color: $white-color;
+                    border-color: $main-color;
+                    box-shadow: rgba(93, 40, 119, 0.57) 0px 12px 24px -10px;
+                    transform: translateY(-3px);
+                }
+            }
+        }
+    }
+}
+
+/*================================================
+Sidebar Modal CSS
+=================================================*/
+.sidebar-modal {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .8);
+    z-index: 99999;
+    opacity: 0;
+    visibility: hidden;
+    transition: $transition;
+    overflow: hidden;
+
+    .sidebar-modal-inner {
+        position: absolute;
+        right: -100%;
+        top: 0;
+        width: 40%;
+        overflow-y: scroll;
+        height: 100%;
+        background-color: $white-color;
+        transition: .7s;
+        z-index: 1;
+        padding: {
+            top: 60px;
+            bottom: 60px;
+            left: 60px;
+            right: 60px;
+        }
+        .close-btn {
+            display: inline-block;
+            position: absolute;
+            right: 35px;
+            top: 20px;
+            font-size: 25px;
+            transition: $transition;
+            color: $black-color;
+            opacity: .66;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+    .about-area {
+        margin: {
+            bottom: 40px;
+        }
+        .title {
+            h2 {
+                margin-bottom: 0;
+                font: {
+                    size: 28px;
+                    weight: 700;
+                    family: $optional-font-family;
+                }
+            }
+            p {
+                font-size: 14px;
+                margin-top: 12px;
+                line-height: 1.7;
+                color: #333333;
+            }
+        }
+    }
+    .contact-area {
+        .title {
+            margin-bottom: 25px;
+
+            h2 {
+                margin-bottom: 0;
+                font: {
+                    size: 28px;
+                    weight: 700;
+                    family: $optional-font-family;
+                }
+            }
+        }
+        .contact-form {
+            max-width: 500px;
+            
+            form {
+                .form-group {
+                    margin-bottom: 15px;
+                }
+                .form-control {
+                    height: 45px;
+                    border: none;
+                    box-shadow: 0 5px 28.5px 1.5px rgba(149, 152, 200, .15);
+                    background-color: $white-color;
+                    font-size: 13.5px;
+                    padding-left: 15px;
+                    color: $black-color;
+                }
+                textarea.form-control {
+                    height: auto;
+                    padding-top: 10px;
+                }
+                button {
+                    margin-top: 10px;
+                    border: none;
+                    background-color: $black-color;
+                    outline: 0;
+                    color: $white-color;
+                    transition: $transition;
+                    border-radius: 30px;
+                    box-shadow: 0 5px 28.5px 1.5px rgba(0, 0, 0, .3);
+                    font: {
+                        family: $optional-font-family;
+                        size: 16px;
+                        weight: 600;
+                    }
+                    padding: {
+                        left: 30px;
+                        right: 30px;
+                        top: 10px;
+                        bottom: 11px;
+                    }
+                    &:hover {
+                        color: $white-color;
+                        background-color: $main-color;
+                    }
+                }
+                .help-block {
+                    ul {
+                        padding-left: 0;
+                        margin-bottom: 0;
+                        list-style-type: none;
+                    }
+                    &.with-errors {
+                        ul {
+                            color: red;
+                            margin-top: 7px;
+                            font-size: 14px;
+                        }
+                    }
+                }
+                #msgSubmit {
+                    margin-bottom: 0;
+                    font-size: 20px;
+
+                    &.text-danger {
+                        margin-top: 8px;
+                    }
+                    &.text-success {
+                        margin-top: 8px;
+                    }
+                }
+            }
+        }
+        .contact-info {
+            text-align: center;
+            margin-top: 50px;
+        
+            .contact-info-content {
+                h3 {
+                    margin-bottom: 15px;
+                    font: {
+                        size: 20px;
+                        weight: 700;
+                        family: $optional-font-family;
+                    }
+                }
+                h2 {
+                    margin-bottom: 0;
+                    font: {
+                        size: 28px;
+                        weight: 700;
+                        family: $optional-font-family;
+                    }
+                    a {
+                        display: inline-block;
+                        color: $main-color;
+        
+                        &:hover {
+                            color: $black-color;
+                        }
+                        &:not(:first-child) {
+                            color: $black-color;
+        
+                            &:hover {
+                                color: $main-color;
+                            }
+                        }
+                    }
+                    span {
+                        display: block;
+                        color: #57647c;
+                        margin: {
+                            top: 8px;
+                            bottom: 2px;
+                        }
+                        font: {
+                            size: 14px;
+                            weight: 500;
+                        }
+                    }
+                }
+                .social {
+                    padding-left: 0;
+                    list-style-type: none;
+                    margin: {
+                        bottom: 0;
+                        top: 20px;
+                    }
+                    li {
+                        display: inline-block;
+                        margin: 0 1px;
+        
+                        a {
+                            width: 35px;
+                            height: 35px;
+                            line-height: 33px;
+                            border: 1px solid #dadada;
+                            border-radius: 50%;
+                            color: #aba5a5;
+                            display: block;
+        
+                            i {
+                                font-size: 14px;
+                            }
+                            &:hover {
+                                color: $white-color;
+                                border-color: $main-color;
+                                background-color: $main-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        
+        .sidebar-modal-inner {
+            right: 0;
+        }
+    }
+}
